@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="yph_service" />
+
+    <dubbo:registry client="zkclient" protocol="zookeeper" address="zookeeper://172.16.33.218:2181"
+                    file="E:\loger\hh.properties" />
+
+    <dubbo:annotation package="com.yph.service"/>
+
+    <dubbo:consumer check="false" retries="0"/>
+
+    <dubbo:provider port="20886" threads="500" protocol="dubbo" threadpool="fixed" retries="0" loadbalance="roundrobin" accesslog="true"/>
+
+
+
+</beans>

@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="yph_Contarller_liujunhan" logger="log4j"/>
+
+    <dubbo:registry client="zkclient" protocol="zookeeper" address="zookeeper://172.16.33.218:2181"/>
+
+    <dubbo:annotation package="com.yipuhui.service"/>
+
+   <dubbo:consumer check="true" loadbalance="roundrobin" retries="0"/>
+
+
+</beans>
